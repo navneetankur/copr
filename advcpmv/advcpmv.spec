@@ -6,7 +6,7 @@ Summary:        Advanced Copy is a mod for the GNU cp and GNU mv tools which add
 License:        GPLv3+
 URL:            https://github.com/jarun/advcpmv
 Patch0:         https://raw.githubusercontent.com/jarun/advcpmv/master/%{name}-%{version}-%{CORE_UTILS_VERSION}.patch
-Source0:        http://ftp.gnu.org/gnu/coreutils/coreutils-%{CORE_UTILS_VERSION}.tar.xz
+Source0:        https://ftp.gnu.org/gnu/coreutils/coreutils-%{CORE_UTILS_VERSION}.tar.xz
 
 BuildRequires:  gcc
 BuildRequires:  make
