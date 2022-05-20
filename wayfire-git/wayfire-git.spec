@@ -1,23 +1,14 @@
 Name:           wayfire-git
 Version:        0.7.3.2022.05.20
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        3D wayland compositor
 License:        MIT
 URL:            https://github.com/WayfireWM/wayfire
 
 %global src0    wayfire
-%global src1    wf-utils
-%global src2    wf-config
-%global src3    wf-touch
-%global branch  master
-
-%global dl0     https://github.com/WayfireWM/%{src0}/archive/refs/heads/%branch.zip
-%global dl1     https://github.com/WayfireWM/%{src1}/archive/refs/heads/%branch.zip
-%global dl2     https://github.com/WayfireWM/%{src2}/archive/refs/heads/%branch.zip
-%global dl3     https://github.com/WayfireWM/%{src3}/archive/refs/heads/%branch.zip
-
 Source0:        empty
 
+BuildRequires:  git-core
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  inotify-tools-devel
@@ -66,18 +57,8 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Development files for %{name}.
 
 %prep
-curl -Lo %src0-%branch.zip %dl0
-curl -Lo %src1-%branch.zip %dl1
-curl -Lo %src2-%branch.zip %dl2
-curl -Lo %src3-%branch.zip %dl3
-unzip -qqo %src0-%branch.zip
-%setup -DTn %src0-%branch
-unzip -qqo ../%src1-%branch.zip
-mv %src1-%branch/* subprojects/%src1/
-unzip -qqo ../%src2-%branch.zip
-mv %src2-%branch/* subprojects/%src2/
-unzip -qqo ../%src3-%branch.zip
-mv %src3-%branch/* subprojects/%src3/
+git clone --depth=1 --recurse-submodules --shallow-submodules 'https://github.com/WayfireWM/wayfire'
+%setup -DTn %src0
 
 %build
 %meson                            \
@@ -89,7 +70,6 @@ mv %src3-%branch/* subprojects/%src3/
 
 %install
 %meson_install
-install -Dpm0644 %{src0}.desktop %{buildroot}%{_datadir}/wayland-sessions/%{name}.desktop
 rm -f %{buildroot}%{_libdir}/libwftouch.a
 rm -f %{buildroot}/%{_prefix}/lib/debug/usr/lib64/libwf-config.so.0.8.0-0.7.3-1.fc36.x86_64.debug
 
@@ -113,5 +93,7 @@ rm -f %{buildroot}/%{_prefix}/lib/debug/usr/lib64/libwf-config.so.0.8.0-0.7.3-1.
 
 
 %changelog
+* Fri May 20 2022 Navneet Aman <contact@navneetaman.com> - 0.7.3.2022.05.20-2
+- Use git submodules for wf-utils,wf-touch and wf-config
 * Fri May 20 2022 Navneet Aman <contact@navneetaman.com> - 0.7.3.2022.05.20-1
 - Git package
