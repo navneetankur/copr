@@ -57,7 +57,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Development files for %{name}.
 
 %prep
-git clone --depth=1 --recurse-submodules --shallow-submodules 'https://github.com/WayfireWM/wayfire'
+git clone --depth=1 --recurse-submodules --shallow-submodules %url
 %setup -DTn %src0
 
 %build
