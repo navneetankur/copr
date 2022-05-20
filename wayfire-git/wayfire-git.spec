@@ -6,7 +6,7 @@ License:        MIT
 URL:            https://github.com/WayfireWM/wayfire
 
 %global src0    wayfire
-Source0:        empty
+Source0:        %src0.tar.gz
 
 BuildRequires:  git-core
 BuildRequires:  cmake
@@ -57,8 +57,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Development files for %{name}.
 
 %prep
-git clone --depth=1 --recurse-submodules --shallow-submodules %url
-%setup -DTn %src0
+%setup -n %src0
 
 %build
 %meson                            \

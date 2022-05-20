@@ -1,0 +1,4 @@
+srpm:
+	git clone --depth=1 --recurse-submodules --shallow-submodules https://github.com/WayfireWM/wayfire
+	tar cf wayfire.tar.gz wayfire/
+	rpmbuild -bs "$(spec)" --define "_topdir ." --define "_sourcedir ." --define "_srcrpmdir $(outdir)"
