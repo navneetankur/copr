@@ -1,5 +1,5 @@
 Name:           wayfire-git
-Version:        0.7.3.2022.05.20
+Version:        0.7.3.2022.06.30
 Release:        2%{?dist}
 Summary:        3D wayland compositor
 License:        MIT
