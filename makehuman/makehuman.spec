@@ -19,9 +19,6 @@ git clone --depth 1 %giturl %name
 %setup -DTn %name
 cd makehuman
 ./download_assets_git.py
-./compile_models.py
-./compile_proxies.py
-./compile_targets.py
 
 
 %install
