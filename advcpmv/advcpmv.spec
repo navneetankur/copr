@@ -1,7 +1,7 @@
 Name:           advcpmv
 Version:        0.9
-%global CORE_UTILS_VERSION 9.0
-Release:        1%{?dist}
+%global CORE_UTILS_VERSION 9.1
+Release:        2%{?dist}
 Summary:        Advanced Copy is a mod for the GNU cp and GNU mv tools which adds a progress bar
 License:        GPLv3+
 URL:            https://github.com/jarun/advcpmv
@@ -46,5 +46,7 @@ install -Dm 755 src/mv %{buildroot}/%{_bindir}/mvg
 
 
 %changelog
+* Sat Mar 18 2023 Navneet Aman <contact@navneetaman.com> - 0.9-2
+- updated version
 * Sun May 15 2022 Navneet Aman <contact@navneetaman.com> - 0.9-1
 - Initial
