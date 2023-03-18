@@ -31,7 +31,7 @@ BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.12
 BuildRequires:  pkgconfig(wayland-server)
-BuildRequires:  pkgconfig(wlroots) >= 0.15.0, pkgconfig(wlroots) < 0.16.0
+BuildRequires:  pkgconfig(wlroots) >= 0.15.0, pkgconfig(wlroots) <= 0.16.2
 BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(nlohmann_json)
 
